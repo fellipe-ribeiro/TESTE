@@ -42,3 +42,15 @@ export const ButtonTextConta = styled.Text`
   color: #fc6011;
   font-size: 16px;
 `;
+
+export const ContainerFacebook = styled(RectButton)`
+  width: 80%;
+  height: 55px;
+
+  border-radius: 35px;
+
+  justify-content: center;
+  align-items: center;
+`;
+
+export const ButtonImageFacebook = styled.Image``;

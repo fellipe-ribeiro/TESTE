@@ -1,4 +1,5 @@
 import React from 'react';
+import { StatusBar } from 'react-native';
 
 import { Container, ImageTop, Logo, Descricao } from './styles';
 
@@ -10,6 +11,7 @@ import { ButtonLogin, ButtonConta } from '../../components/Button';
 const Index: React.FC = () => {
   return (
     <>
+      <StatusBar barStyle="light-content" />
       <ImageTop source={topImg} />
       <Container>
         <Logo source={logoImg} />

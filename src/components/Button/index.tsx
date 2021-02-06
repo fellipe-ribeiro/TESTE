@@ -1,16 +1,20 @@
 import React from 'react';
 import { RectButtonProperties } from 'react-native-gesture-handler';
 
+import facebookImg from '../../assets/facebook_login.png';
+
 import {
   ContainerLogin,
   ButtonTextLogin,
   BorderConta,
   ContainerConta,
   ButtonTextConta,
+  ContainerFacebook,
+  ButtonImageFacebook,
 } from './styles';
 
 interface ButtonProps extends RectButtonProperties {
-  children: string;
+  children?: string;
 }
 
 export const ButtonLogin: React.FC<ButtonProps> = ({ children, ...rest }) => (
@@ -25,4 +29,13 @@ export const ButtonConta: React.FC<ButtonProps> = ({ children, ...rest }) => (
       <ButtonTextConta>{children}</ButtonTextConta>
     </BorderConta>
   </ContainerConta>
+);
+
+export const ButtonFacebook: React.FC<ButtonProps> = ({
+  children,
+  ...rest
+}) => (
+  <ContainerFacebook {...rest}>
+    <ButtonImageFacebook source={facebookImg}>{children}</ButtonImageFacebook>
+  </ContainerFacebook>
 );
