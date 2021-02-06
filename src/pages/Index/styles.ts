@@ -18,7 +18,7 @@ export const Container = styled.View`
 export const Logo = styled.Image`
   align-self: center;
   padding: 0;
-  margin-bottom: 5%;
+  margin-bottom: 10%;
 `;
 
 export const Descricao = styled.Text`
