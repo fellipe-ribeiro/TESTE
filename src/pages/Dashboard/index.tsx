@@ -140,7 +140,7 @@ const Dashboard: React.FC = () => {
     <>
       <StatusBar barStyle="dark-content" />
       <FlatList
-        style={{ flex: 1, backgroundColor: '#F2F2F2' }}
+        style={{ flex: 1, backgroundColor: '#fafafa' }}
         data={[Dashboard]}
         keyExtractor={dashboard => String(dashboard)}
         renderItem={() => (

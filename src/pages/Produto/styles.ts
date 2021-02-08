@@ -145,7 +145,7 @@ export const DescriptionTitle = styled.Text`
   color: #4a4b4d;
   text-align: left;
 
-  margin-bottom: 5px;
+  margin-bottom: 10px;
   margin-top: 10px;
 `;
 
@@ -282,7 +282,7 @@ export const PortionIconSelectorSum = styled.Image`
 
 export const TotalPriceContainer = styled.View`
   flex-direction: row;
-  margin-bottom: 35px;
+  margin-bottom: 5px;
 `;
 
 export const TotalPriceLeftBackground = styled.View`
@@ -371,4 +371,144 @@ export const TotalPriceCartRightBackground = styled.View`
 export const TotalPriceRightCartIcon = styled.Image`
   align-self: center;
   margin-top: 14px;
+`;
+
+export const BottomNavigationContainer = styled.View`
+  position: relative;
+`;
+
+export const BottomNavigationBackground = styled.View`
+  flex-direction: row;
+  background: #ffffff;
+  height: 92px;
+  width: 100%;
+
+  position: relative;
+`;
+
+export const BottomNavigationBackgroundLeft = styled.View`
+  flex-direction: row;
+  background: #ffffff;
+  height: 92px;
+  width: 148.71px;
+  border-top-right-radius: 35px;
+`;
+
+export const BottomNavigationBackgroundRight = styled.View`
+  flex-direction: row;
+  background: #ffffff;
+  height: 92px;
+  width: 149px;
+  border-top-left-radius: 35px;
+
+  margin-left: auto;
+`;
+
+export const BottomNavigationGradient = styled.View`
+  background: #f2f2f2;
+  width: 100%;
+  height: 29px;
+`;
+
+export const BottomNavigationGradientCircle = styled.View`
+  background: #f2f2f2;
+  width: 102px;
+  height: 102px;
+  border-radius: 51px;
+
+  align-self: center;
+  margin-top: 945px;
+
+  position: absolute;
+`;
+
+export const BottomNavigationHomeBackground = styled.TouchableOpacity`
+  background: #b6b7b7;
+  width: 72px;
+  height: 72px;
+  border-radius: 36px;
+  align-self: center;
+
+  margin-top: 960px;
+
+  position: absolute;
+`;
+
+export const BottomNavigationHomeIcon = styled.Image`
+  width: 30.49px;
+  height: 28.98px;
+  margin-top: 980px;
+
+  align-self: center;
+
+  position: absolute;
+`;
+
+export const BottomNavigationMenuIconContainer = styled.View`
+  margin-top: 33px;
+  margin-left: 16.71px;
+  width: 32px;
+  height: 32px;
+`;
+export const BottomNavigationOffersIconContainer = styled.View`
+  margin-top: 31px;
+  margin-left: 38px;
+  width: 46px;
+  height: 46px;
+`;
+export const BottomNavigationProfileIconContainer = styled.View`
+  margin-top: 31px;
+  margin-left: 16px;
+  width: 46px;
+  height: 46px;
+`;
+export const BottomNavigationMoreIconContainer = styled.View`
+  margin-top: 31px;
+  margin-left: 30px;
+  width: 42px;
+  height: 42px;
+`;
+
+export const BottomNavigationMenuIcon = styled.Image`
+  align-self: center;
+`;
+
+export const BottomNavigationOffersIcon = styled.Image`
+  align-self: center;
+`;
+
+export const BottomNavigationProfileIcon = styled.Image`
+  align-self: center;
+`;
+
+export const BottomNavigationMoreIcon = styled.Image`
+  align-self: center;
+`;
+
+export const MenuIconText = styled.Text`
+  font-family: 'metropolis.medium';
+  font-size: 12px;
+  color: #b6b7b7;
+  text-align: center;
+`;
+
+export const OffersIconText = styled.Text`
+  font-family: 'metropolis.medium';
+  font-size: 12px;
+  color: #b6b7b7;
+  text-align: center;
+`;
+
+export const ProfileIconText = styled.Text`
+  font-family: 'metropolis.medium';
+  font-size: 12px;
+  color: #b6b7b7;
+  text-align: center;
+`;
+
+export const MoreIconText = styled.Text`
+  font-family: 'metropolis.medium';
+  font-size: 12px;
+  color: #b6b7b7;
+  text-align: center;
 `;

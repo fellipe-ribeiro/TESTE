@@ -45,6 +45,26 @@ import {
   TotalPriceRightCartIcon,
   HeartContainer,
   HeartIcon,
+  BottomNavigationContainer,
+  BottomNavigationBackground,
+  BottomNavigationBackgroundLeft,
+  BottomNavigationBackgroundRight,
+  BottomNavigationGradient,
+  BottomNavigationGradientCircle,
+  BottomNavigationHomeBackground,
+  BottomNavigationHomeIcon,
+  BottomNavigationMenuIconContainer,
+  BottomNavigationOffersIconContainer,
+  BottomNavigationProfileIconContainer,
+  BottomNavigationMoreIconContainer,
+  BottomNavigationMenuIcon,
+  BottomNavigationOffersIcon,
+  BottomNavigationProfileIcon,
+  BottomNavigationMoreIcon,
+  MenuIconText,
+  OffersIconText,
+  ProfileIconText,
+  MoreIconText,
 } from './styles';
 
 import imgTop from '../../assets/chad-montano-MqT0asuoIcU-unsplash.png';
@@ -57,6 +77,12 @@ import imgStarW from '../../assets/starw.png';
 import imgSubtract from '../../assets/-.png';
 import imgSum from '../../assets/+.png';
 import imgCartTotal from '../../assets/Grupo8089.png';
+
+import imgMenu from '../../assets/Grupo6847.png';
+import imgOffers from '../../assets/002-shopping-bag.png';
+import imgProfile from '../../assets/man-user.png';
+import imgMore from '../../assets/Grupo6814.png';
+import imgHome from '../../assets/001-home.png';
 
 const Produto: React.FC = () => {
   return (
@@ -78,6 +104,7 @@ const Produto: React.FC = () => {
                   </TopImageContainer>
 
                   <ContainerRadius />
+
                   <HeartContainer>
                     <HeartIcon source={imgHeart} />
                   </HeartContainer>
@@ -164,6 +191,35 @@ const Produto: React.FC = () => {
                     <TotalPriceRightCartIcon source={imgCartOrange} />
                   </TotalPriceCartRightBackground>
                 </TotalPriceContainer>
+
+                <BottomNavigationContainer>
+                  <BottomNavigationGradient />
+                  <BottomNavigationBackground>
+                    <BottomNavigationBackgroundLeft>
+                      <BottomNavigationMenuIconContainer>
+                        <BottomNavigationMenuIcon source={imgMenu} />
+                        <MenuIconText>Menu</MenuIconText>
+                      </BottomNavigationMenuIconContainer>
+                      <BottomNavigationOffersIconContainer>
+                        <BottomNavigationOffersIcon source={imgOffers} />
+                        <OffersIconText>Ofertas</OffersIconText>
+                      </BottomNavigationOffersIconContainer>
+                    </BottomNavigationBackgroundLeft>
+                    <BottomNavigationBackgroundRight>
+                      <BottomNavigationProfileIconContainer>
+                        <BottomNavigationProfileIcon source={imgProfile} />
+                        <ProfileIconText>Perfil</ProfileIconText>
+                      </BottomNavigationProfileIconContainer>
+                      <BottomNavigationMoreIconContainer>
+                        <BottomNavigationMoreIcon source={imgMore} />
+                        <MoreIconText>Mais</MoreIconText>
+                      </BottomNavigationMoreIconContainer>
+                    </BottomNavigationBackgroundRight>
+                  </BottomNavigationBackground>
+                </BottomNavigationContainer>
+                <BottomNavigationGradientCircle />
+                <BottomNavigationHomeBackground />
+                <BottomNavigationHomeIcon source={imgHome} />
               </>
             </Container>
           </>
