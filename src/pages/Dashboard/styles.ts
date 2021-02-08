@@ -15,7 +15,7 @@ export const ContainerCart = styled.View`
 
 export const TextCart = styled.Text`
   color: #4a4b4d;
-  font-family: 'metropolis.bold';
+  font-family: 'metropolis.extra-bold';
   font-size: 20px;
   text-align: left;
 `;
@@ -53,7 +53,7 @@ export const LocalizationIcon = styled.Image`
 
 export const CategoriesContainer = styled.View`
   margin-left: 5%;
-  height: 22%;
+  height: 10%;
 `;
 
 export const CategoriesList = styled(
@@ -71,7 +71,6 @@ export const CategoriesImg = styled.Image`
 
 export const CategoriesTitleContainer = styled.View`
   align-items: center;
-
   align-self: center;
   position: absolute;
   margin-left: 15%;
@@ -79,7 +78,6 @@ export const CategoriesTitleContainer = styled.View`
 
 export const CategoriesTitle = styled.Text`
   margin-top: 50px;
-
   font-family: 'metropolis.bold';
   font-size: 14px;
   color: #4a4b4d;
@@ -88,12 +86,12 @@ export const CategoriesTitle = styled.Text`
 
 export const ContainerRestaurants = styled.View`
   flex-direction: row;
-  margin-left: 6%;
+  margin-left: 5%;
   margin-bottom: 28px;
 `;
 
 export const RestaurantsText = styled.Text`
-  font-family: 'metropolis.bold';
+  font-family: 'metropolis.extra-bold';
   font-size: 18px;
   color: #4a4b4d;
   text-align: left;
@@ -131,9 +129,8 @@ export const RestaurantsTitleContainer = styled.View`
 `;
 
 export const RestaurantsTitle = styled.Text`
-  margin-top: 7px;
-
-  font-family: 'metropolis.extra-bold';
+  margin-top: 9px;
+  font-family: 'metropolis.bold';
   font-size: 16px;
   color: #4a4b4d;
   text-align: left;
@@ -149,6 +146,15 @@ export const RatingRestaurantIcon = styled.Image``;
 
 export const RatingRestaurantNumber = styled.Text`
   font-family: 'metropolis.regular';
+  font-size: 11px;
+  color: #fc6011;
+  text-align: left;
+  margin-left: 5px;
+  margin-right: 5px;
+`;
+
+export const RatingRestaurantText = styled.Text`
+  font-family: 'metropolis.regular';
   font-size: 12px;
   color: #b6b7b7;
   text-align: left;
@@ -157,13 +163,12 @@ export const RatingRestaurantNumber = styled.Text`
 export const PopularContainer = styled.View`
   flex-direction: row;
   margin-left: 5%;
-
-  margin-bottom: 40px;
+  margin-bottom: 30px;
+  margin-top: 30%;
 `;
 
 export const PopularTitle = styled.Text`
   margin-top: 7px;
-
   font-family: 'metropolis.extra-bold';
   font-size: 20px;
   color: #4a4b4d;
@@ -202,25 +207,21 @@ export const PopularRestaurantsImg = styled.Image`
 `;
 
 export const PopularRestaurantsTitleContainer = styled.View`
-  align-items: center;
-
-  align-self: center;
   position: absolute;
+  margin-top: 58%;
+  margin-bottom: 55%;
 `;
 
 export const PopularRestaurantsTitle = styled.Text`
-  margin-top: 140px;
-
   font-family: 'metropolis.bold';
   font-size: 18px;
   color: #4a4b4d;
   text-align: left;
+  margin-bottom: 4px;
 `;
 
 export const PopularRatingRestaurantContainer = styled.View`
   flex-direction: row;
-  margin-left: 5%;
-  margin-bottom: 40px;
 `;
 
 export const PopularRatingRestaurantDescription = styled.Text`
@@ -228,6 +229,22 @@ export const PopularRatingRestaurantDescription = styled.Text`
   font-size: 12px;
   color: #b6b7b7;
   text-align: left;
+  margin-right: auto;
 `;
 
-export const PopularRatingRestaurantIcon = styled.Image``;
+export const PopularRatingRestaurantIcon = styled.Image`
+  width: 10.19px;
+  height: 9.91px;
+
+  align-self: center;
+  margin-left: 20px;
+  margin-right: 5px;
+`;
+
+export const PopularRatingRestaurantNumber = styled.Text`
+  font-family: 'metropolis.regular';
+  font-size: 11px;
+  color: #fc6011;
+  text-align: left;
+  margin-top: 2px;
+`;

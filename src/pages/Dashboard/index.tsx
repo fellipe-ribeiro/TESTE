@@ -1,5 +1,6 @@
 import React, { useCallback } from 'react';
-import { StatusBar } from 'react-native';
+import { StatusBar, FlatList } from 'react-native';
+import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 
 import {
   Container,
@@ -27,6 +28,7 @@ import {
   RatingRestaurantContainer,
   RatingRestaurantIcon,
   RatingRestaurantNumber,
+  RatingRestaurantText,
   PopularContainer,
   PopularTitle,
   ExpandButtonPopular,
@@ -39,6 +41,7 @@ import {
   PopularRatingRestaurantContainer,
   PopularRatingRestaurantDescription,
   PopularRatingRestaurantIcon,
+  PopularRatingRestaurantNumber,
 } from './styles';
 
 import { InputSearch } from '../../components/Input';
@@ -70,6 +73,7 @@ export interface IRestaurants {
 const Dashboard: React.FC = () => {
   const categories: ICategories[] = [img1, img2, img3, img4];
   const restaurants: IRestaurants[] = [img5, img6, img7];
+  const popularRestaurants: IRestaurants[] = [img8, img9];
 
   const handleCategory = useCallback(category => {
     let title = '';
@@ -99,8 +103,14 @@ const Dashboard: React.FC = () => {
       case 16:
         title = 'Café de Noir';
         return title;
-      default:
+      case 17:
         title = 'Panificadora Bella Manhã';
+        return title;
+      case 18:
+        title = 'Pizza da Vila';
+        return title;
+      default:
+        title = 'Bistrô Manu';
         return title;
     }
   }, []);
@@ -114,8 +124,14 @@ const Dashboard: React.FC = () => {
       case 16:
         description = '(124 avaliações) Café';
         return description;
-      default:
+      case 17:
         description = '(124 avaliações) Café Padaria';
+        return description;
+      case 18:
+        description = 'Pizza Italiana';
+        return description;
+      default:
+        description = 'Lanches Refeições';
         return description;
     }
   }, []);
@@ -123,108 +139,121 @@ const Dashboard: React.FC = () => {
   return (
     <>
       <StatusBar barStyle="dark-content" />
-      <Container>
-        <ContainerCart>
-          <TextCart>Bom dia!</TextCart>
+      <FlatList
+        style={{ flex: 1, backgroundColor: '#F2F2F2' }}
+        data={[Dashboard]}
+        keyExtractor={dashboard => String(dashboard)}
+        renderItem={() => (
+          <Container>
+            <ContainerCart>
+              <TextCart>Bom dia!</TextCart>
 
-          <IconCart source={cartImg} />
-        </ContainerCart>
+              <IconCart source={cartImg} />
+            </ContainerCart>
 
-        <TextDelivery>Entregar para</TextDelivery>
-        <ContainerLocalization>
-          <TextLocalization>Sua localização</TextLocalization>
-          <LocalizationIcon source={iconLocalizationImg} />
-        </ContainerLocalization>
-        <InputSearch
-          placeholder="Buscar comida"
-          name="search"
-          icon="searchFood"
-        />
+            <TextDelivery>Entregar para</TextDelivery>
+            <ContainerLocalization>
+              <TextLocalization>Sua localização</TextLocalization>
+              <LocalizationIcon source={iconLocalizationImg} />
+            </ContainerLocalization>
+            <InputSearch
+              placeholder="Buscar comida"
+              name="search"
+              icon="searchFood"
+            />
 
-        <CategoriesContainer onPress={() => {}}>
-          <CategoriesList
-            horizontal
-            showsHorizontalScrollIndicator={false}
-            data={categories}
-            keyExtractor={category => String(category)}
-            renderItem={({ item: category }) => (
-              <>
-                <CategoriesImg source={category} />
-                <CategoriesTitleContainer>
-                  <CategoriesTitle>{handleCategory(category)}</CategoriesTitle>
-                </CategoriesTitleContainer>
-              </>
-            )}
-          />
-        </CategoriesContainer>
+            <CategoriesContainer onPress={() => {}}>
+              <CategoriesList
+                horizontal
+                showsHorizontalScrollIndicator={false}
+                data={categories}
+                keyExtractor={category => String(category)}
+                renderItem={({ item: category }) => (
+                  <>
+                    <CategoriesImg source={category} />
+                    <CategoriesTitleContainer>
+                      <CategoriesTitle>
+                        {handleCategory(category)}
+                      </CategoriesTitle>
+                    </CategoriesTitleContainer>
+                  </>
+                )}
+              />
+            </CategoriesContainer>
 
-        <ContainerRestaurants>
-          <RestaurantsText>Restaurantes mais populares</RestaurantsText>
+            <ContainerRestaurants>
+              <RestaurantsText>Restaurantes mais populares</RestaurantsText>
 
-          <ExpandButton>
-            <ExpandButtonText>Ver tudo</ExpandButtonText>
-          </ExpandButton>
-        </ContainerRestaurants>
+              <ExpandButton>
+                <ExpandButtonText>Ver tudo</ExpandButtonText>
+              </ExpandButton>
+            </ContainerRestaurants>
 
-        <RestaurantsContainer onPress={() => {}}>
-          <RestaurantsList
-            showsHorizontalScrollIndicator={false}
-            data={restaurants}
-            keyExtractor={restaurant => String(restaurant)}
-            renderItem={({ item: restaurant }) => (
-              <>
-                <RestaurantsImg source={restaurant} />
-                <RestaurantsTitleContainer>
-                  <RestaurantsTitle>
-                    {handleRestaurant(restaurant)}
-                  </RestaurantsTitle>
-                </RestaurantsTitleContainer>
+            <RestaurantsContainer onPress={() => {}}>
+              <RestaurantsList
+                showsHorizontalScrollIndicator={false}
+                data={restaurants}
+                keyExtractor={restaurant => String(restaurant)}
+                renderItem={({ item: restaurant }) => (
+                  <>
+                    <RestaurantsImg source={restaurant} />
+                    <RestaurantsTitleContainer>
+                      <RestaurantsTitle>
+                        {handleRestaurant(restaurant)}
+                      </RestaurantsTitle>
+                    </RestaurantsTitleContainer>
 
-                <RatingRestaurantContainer>
-                  <RatingRestaurantIcon source={ratingImg} />
-                  <RatingRestaurantNumber>
-                    {handleRatingNumber(restaurant)}
-                  </RatingRestaurantNumber>
-                </RatingRestaurantContainer>
-              </>
-            )}
-          />
-        </RestaurantsContainer>
+                    <RatingRestaurantContainer>
+                      <RatingRestaurantIcon source={ratingImg} />
+                      <RatingRestaurantNumber>4.9</RatingRestaurantNumber>
+                      <RatingRestaurantText>
+                        {handleRatingNumber(restaurant)}
+                      </RatingRestaurantText>
+                    </RatingRestaurantContainer>
+                  </>
+                )}
+              />
+            </RestaurantsContainer>
 
-        <PopularContainer>
-          <PopularTitle>Mais populares</PopularTitle>
+            <PopularContainer>
+              <PopularTitle>Mais populares</PopularTitle>
 
-          <ExpandButtonPopular>
-            <ExpandButtonPopularText>Ver todos</ExpandButtonPopularText>
-          </ExpandButtonPopular>
-        </PopularContainer>
+              <ExpandButtonPopular>
+                <ExpandButtonPopularText>Ver todos</ExpandButtonPopularText>
+              </ExpandButtonPopular>
+            </PopularContainer>
 
-        <PopularRestaurantsContainer onPress={() => {}}>
-          <PopularRestaurantsList
-            horizontal
-            showsHorizontalScrollIndicator={false}
-            data={restaurants}
-            keyExtractor={restaurant => String(restaurant)}
-            renderItem={({ item: restaurant }) => (
-              <>
-                <PopularRestaurantsImg source={restaurant} />
-                <PopularRestaurantsTitleContainer>
-                  <PopularRestaurantsTitle>
-                    {handleRestaurant(restaurant)}
-                  </PopularRestaurantsTitle>
+            <PopularRestaurantsContainer onPress={() => {}}>
+              <PopularRestaurantsList
+                horizontal
+                showsHorizontalScrollIndicator={false}
+                data={popularRestaurants}
+                keyExtractor={restaurant => String(restaurant)}
+                renderItem={({ item: restaurant }) => (
+                  <>
+                    <PopularRestaurantsImg source={restaurant} />
+                    <PopularRestaurantsTitleContainer>
+                      <PopularRestaurantsTitle>
+                        {handleRestaurant(restaurant)}
+                      </PopularRestaurantsTitle>
 
-                  <PopularRatingRestaurantContainer>
-                    <PopularRatingRestaurantDescription>
-                      Pizza Italiana
-                    </PopularRatingRestaurantDescription>
-                    <PopularRatingRestaurantIcon source={ratingImg} />
-                  </PopularRatingRestaurantContainer>
-                </PopularRestaurantsTitleContainer>
-              </>
-            )}
-          />
-        </PopularRestaurantsContainer>
-      </Container>
+                      <PopularRatingRestaurantContainer>
+                        <PopularRatingRestaurantDescription>
+                          {handleRatingNumber(restaurant)}
+                        </PopularRatingRestaurantDescription>
+                        <PopularRatingRestaurantIcon source={ratingImg} />
+                        <PopularRatingRestaurantNumber>
+                          4.9
+                        </PopularRatingRestaurantNumber>
+                      </PopularRatingRestaurantContainer>
+                    </PopularRestaurantsTitleContainer>
+                  </>
+                )}
+              />
+            </PopularRestaurantsContainer>
+          </Container>
+        )}
+      />
     </>
   );
 };
