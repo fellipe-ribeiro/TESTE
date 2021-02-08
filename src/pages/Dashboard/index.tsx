@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react';
 import { StatusBar, FlatList } from 'react-native';
-import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
+import { useNavigation } from '@react-navigation/native';
 
 import {
   Container,
@@ -42,11 +42,31 @@ import {
   PopularRatingRestaurantDescription,
   PopularRatingRestaurantIcon,
   PopularRatingRestaurantNumber,
+  BottomNavigationContainer,
+  BottomNavigationBackground,
+  BottomNavigationBackgroundLeft,
+  BottomNavigationBackgroundRight,
+  BottomNavigationGradient,
+  BottomNavigationGradientCircle,
+  BottomNavigationHomeBackground,
+  BottomNavigationHomeIcon,
+  BottomNavigationMenuIconContainer,
+  BottomNavigationOffersIconContainer,
+  BottomNavigationProfileIconContainer,
+  BottomNavigationMoreIconContainer,
+  BottomNavigationMenuIcon,
+  BottomNavigationOffersIcon,
+  BottomNavigationProfileIcon,
+  BottomNavigationMoreIcon,
+  MenuIconText,
+  OffersIconText,
+  ProfileIconText,
+  MoreIconText,
 } from './styles';
 
 import { InputSearch } from '../../components/Input';
 
-import cartImg from '../../assets/shopping-cart.png';
+import cartImg from '../../assets/shopping-cartBlack.png';
 import iconLocalizationImg from '../../assets/Grupo6819.png';
 import ratingImg from '../../assets/Caminho8560.png';
 
@@ -59,6 +79,12 @@ import img6 from '../../assets/photos/photo-6.png';
 import img7 from '../../assets/photos/photo-7.png';
 import img8 from '../../assets/photos/photo-8.png';
 import img9 from '../../assets/photos/photo-9.png';
+
+import imgMenu from '../../assets/Grupo6847.png';
+import imgOffers from '../../assets/002-shopping-bag.png';
+import imgProfile from '../../assets/man-user.png';
+import imgMore from '../../assets/Grupo6814.png';
+import imgHome from '../../assets/001-home.png';
 
 export interface ICategories {
   img: any;
@@ -74,6 +100,8 @@ const Dashboard: React.FC = () => {
   const categories: ICategories[] = [img1, img2, img3, img4];
   const restaurants: IRestaurants[] = [img5, img6, img7];
   const popularRestaurants: IRestaurants[] = [img8, img9];
+
+  const navigation = useNavigation();
 
   const handleCategory = useCallback(category => {
     let title = '';
@@ -136,6 +164,10 @@ const Dashboard: React.FC = () => {
     }
   }, []);
 
+  const handleNavigateProduto = useCallback(() => {
+    navigation.navigate('Produto');
+  }, [navigation.navigate]);
+
   return (
     <>
       <StatusBar barStyle="dark-content" />
@@ -162,7 +194,7 @@ const Dashboard: React.FC = () => {
               icon="searchFood"
             />
 
-            <CategoriesContainer onPress={() => {}}>
+            <CategoriesContainer>
               <CategoriesList
                 horizontal
                 showsHorizontalScrollIndicator={false}
@@ -189,7 +221,7 @@ const Dashboard: React.FC = () => {
               </ExpandButton>
             </ContainerRestaurants>
 
-            <RestaurantsContainer onPress={() => {}}>
+            <RestaurantsContainer onTouchEnd={handleNavigateProduto}>
               <RestaurantsList
                 showsHorizontalScrollIndicator={false}
                 data={restaurants}
@@ -223,7 +255,7 @@ const Dashboard: React.FC = () => {
               </ExpandButtonPopular>
             </PopularContainer>
 
-            <PopularRestaurantsContainer onPress={() => {}}>
+            <PopularRestaurantsContainer>
               <PopularRestaurantsList
                 horizontal
                 showsHorizontalScrollIndicator={false}
@@ -236,21 +268,50 @@ const Dashboard: React.FC = () => {
                       <PopularRestaurantsTitle>
                         {handleRestaurant(restaurant)}
                       </PopularRestaurantsTitle>
-
-                      <PopularRatingRestaurantContainer>
-                        <PopularRatingRestaurantDescription>
-                          {handleRatingNumber(restaurant)}
-                        </PopularRatingRestaurantDescription>
-                        <PopularRatingRestaurantIcon source={ratingImg} />
-                        <PopularRatingRestaurantNumber>
-                          4.9
-                        </PopularRatingRestaurantNumber>
-                      </PopularRatingRestaurantContainer>
                     </PopularRestaurantsTitleContainer>
+
+                    <PopularRatingRestaurantContainer>
+                      <PopularRatingRestaurantDescription>
+                        {handleRatingNumber(restaurant)}
+                      </PopularRatingRestaurantDescription>
+                      <PopularRatingRestaurantIcon source={ratingImg} />
+                      <PopularRatingRestaurantNumber>
+                        4.9
+                      </PopularRatingRestaurantNumber>
+                    </PopularRatingRestaurantContainer>
                   </>
                 )}
               />
             </PopularRestaurantsContainer>
+
+            <BottomNavigationContainer>
+              <BottomNavigationGradient />
+              <BottomNavigationBackground>
+                <BottomNavigationBackgroundLeft>
+                  <BottomNavigationMenuIconContainer>
+                    <BottomNavigationMenuIcon source={imgMenu} />
+                    <MenuIconText>Menu</MenuIconText>
+                  </BottomNavigationMenuIconContainer>
+                  <BottomNavigationOffersIconContainer>
+                    <BottomNavigationOffersIcon source={imgOffers} />
+                    <OffersIconText>Ofertas</OffersIconText>
+                  </BottomNavigationOffersIconContainer>
+                </BottomNavigationBackgroundLeft>
+                <BottomNavigationBackgroundRight>
+                  <BottomNavigationProfileIconContainer>
+                    <BottomNavigationProfileIcon source={imgProfile} />
+                    <ProfileIconText>Perfil</ProfileIconText>
+                  </BottomNavigationProfileIconContainer>
+                  <BottomNavigationMoreIconContainer>
+                    <BottomNavigationMoreIcon source={imgMore} />
+                    <MoreIconText>Mais</MoreIconText>
+                  </BottomNavigationMoreIconContainer>
+                </BottomNavigationBackgroundRight>
+              </BottomNavigationBackground>
+            </BottomNavigationContainer>
+            <BottomNavigationGradientCircle />
+            <BottomNavigationHomeBackground onPress={handleNavigateProduto} />
+            <BottomNavigationHomeIcon source={imgHome} />
           </Container>
         )}
       />

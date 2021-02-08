@@ -463,7 +463,7 @@ export const BottomNavigationProfileIconContainer = styled.View`
   height: 46px;
 `;
 export const BottomNavigationMoreIconContainer = styled.View`
-  margin-top: 31px;
+  margin-top: 32px;
   margin-left: 30px;
   width: 42px;
   height: 42px;

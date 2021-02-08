@@ -1,5 +1,6 @@
 import React from 'react';
 import { StatusBar } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 import {
   Container,
@@ -17,6 +18,8 @@ import { ButtonLogin, ButtonFacebook } from '../../components/Button';
 import { InputAuth } from '../../components/Input';
 
 const Login: React.FC = () => {
+  const navigation = useNavigation();
+
   return (
     <>
       <StatusBar barStyle="dark-content" />
@@ -30,7 +33,7 @@ const Login: React.FC = () => {
         <ButtonLogin
           style={{ marginBottom: 20 }}
           onPress={() => {
-            console.log('Deu');
+            navigation.navigate('Dashboard');
           }}
         >
           Login

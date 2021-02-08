@@ -11,7 +11,7 @@ export const Container = styled.View`
   align-items: center;
   justify-content: center;
   align-self: center;
-  margin-top: 80%;
+  margin-top: 72%;
   position: absolute;
 `;
 

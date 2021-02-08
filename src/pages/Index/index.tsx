@@ -1,5 +1,6 @@
 import React from 'react';
 import { StatusBar } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 import { Container, ImageTop, Logo, Descricao } from './styles';
 
@@ -9,6 +10,8 @@ import logoImg from '../../assets/Logo.png';
 import { ButtonLogin, ButtonConta } from '../../components/Button';
 
 const Index: React.FC = () => {
+  const navigation = useNavigation();
+
   return (
     <>
       <StatusBar barStyle="light-content" />
@@ -16,14 +19,14 @@ const Index: React.FC = () => {
       <Container>
         <Logo source={logoImg} />
         <Descricao>
-          Descubra os melhores alimentos em mais de 1.000 restaurantes e entrega
-          rápida à sua porta
+          Descubra os melhores alimentos em mais de{'\n'} 1.000 restaurantes e
+          entrega rápida à sua porta
         </Descricao>
 
         <ButtonLogin
           style={{ marginBottom: 20 }}
           onPress={() => {
-            console.log('Deu');
+            navigation.navigate('Login');
           }}
         >
           Login

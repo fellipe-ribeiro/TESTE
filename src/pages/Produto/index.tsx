@@ -1,6 +1,7 @@
 import React from 'react';
 import { StatusBar, FlatList } from 'react-native';
 import IconPicker from 'react-native-vector-icons/Feather';
+import { useNavigation } from '@react-navigation/native';
 
 import {
   Container,
@@ -85,6 +86,8 @@ import imgMore from '../../assets/Grupo6814.png';
 import imgHome from '../../assets/001-home.png';
 
 const Produto: React.FC = () => {
+  const navigation = useNavigation();
+
   return (
     <>
       <StatusBar barStyle="light-content" />
@@ -218,7 +221,11 @@ const Produto: React.FC = () => {
                   </BottomNavigationBackground>
                 </BottomNavigationContainer>
                 <BottomNavigationGradientCircle />
-                <BottomNavigationHomeBackground />
+                <BottomNavigationHomeBackground
+                  onPress={() => {
+                    navigation.navigate('Dashboard');
+                  }}
+                />
                 <BottomNavigationHomeIcon source={imgHome} />
               </>
             </Container>

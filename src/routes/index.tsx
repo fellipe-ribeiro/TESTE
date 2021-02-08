@@ -15,10 +15,10 @@ const AuthRoutes: React.FC = () => (
       cardStyle: { backgroundColor: '#FFFFFF' },
     }}
   >
-    <Auth.Screen name="Produto" component={Produto} />
-    <Auth.Screen name="Dashboard" component={Dashboard} />
-    <Auth.Screen name="Login" component={Login} />
     <Auth.Screen name="Index" component={Index} />
+    <Auth.Screen name="Login" component={Login} />
+    <Auth.Screen name="Dashboard" component={Dashboard} />
+    <Auth.Screen name="Produto" component={Produto} />
   </Auth.Navigator>
 );
 
